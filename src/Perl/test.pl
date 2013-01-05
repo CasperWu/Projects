@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-BEGIN{push(@INC,"/home/casper/Projects/src/Perl")};
+BEGIN{push(@INC,"/home/casper/Projects/lib/Perl")};
 
 use srcFile;
 use strict;
