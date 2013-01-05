@@ -19,6 +19,7 @@ Private *InitPrivate()
     return a;
 }
 
+
 void TestPrivate(Private *a)
 {
     assert(NULL != a);
