@@ -1,19 +1,20 @@
 #!/usr/bin/perl
 
-BEGIN{push(@INC,"/home/casper/Projects/perl")};
+BEGIN{push(@INC,"/home/casper/Projects/src/Perl")};
 
 use srcFile;
 use strict;
 
 my $file = new SrcFile;
 
-$file->ApdInc("cmfOrder.c", "#include <stdlib.h>\n");
-$file->ApdInc("cmfOrder.c", "#include <stdio.h>\n");
-$file->ApdMac("cmfOrder.c", "#define MAX 5\n");
-$file->ApdMac("cmfOrder.c", "#define MIN 7\n");
-$file->ApdStr("cmfOrder.c", "typedef struct ABC{int a;};\n");
-$file->ApdStr("cmfOrder.c", "typedef struct DEF{float c;};");
-$file->ApdFun("cmfOrder.c", "char * GetName1(char *ptr){while(1){int a=2;}}");
-$file->ApdFun("cmfOrder.c", "char * GetName2();");
+$file->ApdInc("auto.c", "#include <stdlib.h>\n");
+$file->ApdInc("auto.c", "#include <stdio.h>\n\n");
+$file->ApdMac("auto.c", "#define MAX 10\n");
+$file->ApdMac("auto.c", "#define MIN 1\n\n");
+$file->ApdStr("auto.c", "typedef struct Int{int a;};\n");
+$file->ApdStr("auto.c", "typedef struct Float{float c;};");
+$file->ApdFun("auto.c", "char * GetInt(const Int *value){return value->a;}");
+$file->ApdFun("auto.c", "char * GetFloat(const Float *value){return value->c;}");
 
-$file->ApdFun("midMsg.c", "char * GetMidMsg();char * GetMidMsg2();");
+$file->ApdFun("auto.h", "char * GetInt(const Int *value);");
+$file->ApdFun("auto.h", "char * GetFloat(const Float *value);");
