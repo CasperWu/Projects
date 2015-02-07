@@ -1,4 +1,3 @@
-
 CC=g++
 CXXFLAGS=-g
 OBJ = network.o
