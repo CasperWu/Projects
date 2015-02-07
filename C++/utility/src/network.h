@@ -1,3 +1,8 @@
+#ifndef H_NETWORK
+#define H_NETWORK
+
+#include <arpa/inet.h>
+#include <sys/types.h>
 
 /*
  * @see some definitions refer to codes on pages http://www.tcpdump.org/pcap.html
@@ -60,3 +65,28 @@ struct sniff_tcp {
     u_short th_sum; /* checksum */
     u_short th_urp; /* urgent pointer */
 };
+
+/**
+ * @param saddr  Source IP, network endian
+ * @param daddr  Destination IP, network endian
+ * @param len  Length of TCP section, including TCP header and data,
+ *             network endian
+ * @param proto  Protocal code, it's one byte in TCP header
+ * @param data  Data contained in TCP or UDP diagram, excluding header
+ *
+ * @return  Checksum for the TCP or UDP diagram. It should be the same
+ *          as checksum field in header.
+ */
+unsigned short ChecksumTcpUdp(unsigned int saddr, unsigned int daddr,
+        unsigned short len, unsigned char proto, const unsigned char *data);
+
+/**
+ * @param addr  It points to a IP header
+ * @param count Size of header in byte
+ *
+ * @return  Checksum for the IP diagram. It should be the same
+ *          as checksum field in header.
+ */
+unsigned short ChecksumIp(const unsigned char *addr, int count);
+
+#endif
