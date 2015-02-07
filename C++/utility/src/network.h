@@ -1,3 +1,8 @@
+
+/*
+ * @see some definitions refer to codes on pages http://www.tcpdump.org/pcap.html
+ */
+
 /* Ethernet addresses are 6 bytes */
 #define ETHER_ADDR_LEN  6
 /* ethernet headers are always exactly 14 bytes */
