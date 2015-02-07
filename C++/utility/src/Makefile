@@ -7,8 +7,8 @@ LIB=libnetwork.a
 
 $(LIB): $(OBJ)
 	ar rcs $(LIB) $(OBJ)
-	cp network.h ../include/
-	cp $(LIB) ../lib/
+	mkdir -p ../include && cp network.h ../include/
+	mkdir -p ../lib && cp $(LIB) ../lib/
 
 clean:
 	rm -f $(OBJ) $(LIB)
