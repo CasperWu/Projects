@@ -1,7 +1,7 @@
 
 CC=g++
-CXXFLAGS=-std=c++0x -g -I ../include/
-LFLAGS=-L../lib/ -lnetwork
+CXXFLAGS=-std=c++0x -g -I ../include/ -I../../ThirdParty/include/
+LFLAGS=-L../../ThirdParty/lib/gtest -lgtest -lpthread -L../lib/ -lnetwork
 OBJ = network.o
 
 EXE=test
