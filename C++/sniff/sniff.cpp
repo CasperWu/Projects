@@ -83,8 +83,12 @@ void PcapHandler(u_char *args, const struct pcap_pkthdr *header,
             break;
         }
 
-        ChecksumTcpUdp(ip->ip_src.s_addr, ip->ip_dst.s_addr,
-                htons(ntohs(ip->ip_len) - size_ip), ip->ip_p, (unsigned char *)tcp);
+        if (tcp->th_sum
+            != ChecksumTcpUdp(ip->ip_src.s_addr, ip->ip_dst.s_addr,
+                    htons(ntohs(ip->ip_len) - size_ip), ip->ip_p, (unsigned char *)tcp)) {
+            fprintf(stderr, "TCP checksum validation failed\n");
+            break;
+        }
         payload = (const u_char *)(packet + SIZE_ETHERNET + size_ip + size_tcp);
     } while (0);
 }
