@@ -12,13 +12,13 @@ void PcapHandler(u_char *args, const struct pcap_pkthdr *header,
 int main(int argc, char *argv[])
 {
     int retval = 0;
-    pcap_t *handle;        /* Session handle */
-    char dev[] = "eth0";        /* Device to sniff on */
-    char errbuf[PCAP_ERRBUF_SIZE]; /* Error string */
-    struct bpf_program fp;     /* The compiled filter expression */
-    char filter_exp[] = "tcp"; /* The filter expression */
-    bpf_u_int32 mask;      /* The netmask of our sniffing device */
-    bpf_u_int32 net;       /* The IP of our sniffing device */
+    pcap_t *handle;        // Session handle
+    char dev[] = "eth0";   // Device to sniff on
+    char errbuf[PCAP_ERRBUF_SIZE]; // Error string
+    struct bpf_program fp;     // The compiled filter expression
+    char filter_exp[] = "tcp"; // The filter expression
+    bpf_u_int32 mask;      // The netmask of our sniffing device
+    bpf_u_int32 net;       // The IP of our sniffing device
 
     do {
         if (pcap_lookupnet(dev, &net, &mask, errbuf) == -1) {
