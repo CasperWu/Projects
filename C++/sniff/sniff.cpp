@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
 void PcapHandler(u_char *args, const struct pcap_pkthdr *header,
                 const u_char *packet)
 {
-    const struct sniff_ethernet *ethernet; /* The ethernet header */
+    const struct sniff_ethernet *ethernet; // The ethernet header
     const struct sniff_ip *ip; /* The IP header */
     const struct sniff_tcp *tcp; /* The TCP header */
     const u_char *payload; /* Packet payload */
