@@ -1,6 +1,6 @@
 
 CC=g++
-CXXFLAGS=-std=c++0x -g -I ../utility/include/ -I/usr/local/include
+CXXFLAGS=-std=c++0x -Wall -g -I../../utility/include/ -I../../ThirdParty/include/pcap/
 LFLAGS=-L../utility/lib/ -lnetwork -L/usr/local/lib -lpcap
 OBJ = sniff.o
 
